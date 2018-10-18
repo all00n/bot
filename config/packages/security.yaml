@@ -1,0 +1,39 @@
+security:
+    
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+    
+    providers:
+        our_db_provider:
+            entity:
+                class: App\Entity\User
+                property: username
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+            
+        secured_area:
+            pattern:    ^/policy
+            anonymous: true
+            
+        main:
+            pattern:    ^/
+            http_basic: ~
+            provider: our_db_provider
+            logout:
+                path:   /logout
+                target: /
+                invalidate_session: false
+                delete_cookies:
+                    a: { path: null, domain: null }
+                    b: { path: null, domain: null }
+
+            
+    access_control:
+        # require ROLE_ADMIN for /admin*
+        - { path: ^/policy, role: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/, roles: ROLE_USER }
+
+        

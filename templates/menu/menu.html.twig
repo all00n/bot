@@ -1,0 +1,15 @@
+{{ render(controller('App\\Controller\\HeaderController::index',{'title':'Меню'})) }}
+
+    <h1>{{ title }}</h1>
+
+    <img id="my_button" src="img/menu.jpg" width="150" height="255">
+    
+    <form enctype="multipart/form-data" action="{{ path('post_send') }}" method="POST">
+        <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="hidden" name="MAX_FILE_SIZE" value="300000000000">
+            <input name="file" type="file" id="exampleInputFile">
+            <input type="submit" value="Сохранить" class="btn btn-default">
+        </div>
+    </form>
+{% include 'main/footer.html.twig'%}

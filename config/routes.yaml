@@ -1,0 +1,141 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+home:
+    path: /
+    defaults: { _controller: 'App\Controller\HomeController::index'}
+
+reserve_annulment:
+    path: /annulment
+    defaults: { _controller: 'App\Controller\HomeController::annulment'}
+
+reserve_show:
+    path: reserve/{slug}
+    defaults: { _controller: 'App\Controller\HomeController::show'}
+    requirements:
+        slug: '\d+'
+        
+reserve_edit:
+    path: reserve/edit/{slug}
+    defaults: { _controller: 'App\Controller\HomeController::edit'}
+    requirements:
+        slug: '\d+'
+    
+contact:
+    path: contact
+    defaults: { _controller: 'App\Controller\ContactController::index'}
+    
+contact_show:
+    path: contact/{slug}
+    defaults: { _controller: 'App\Controller\ContactController::show'}
+    requirements:
+        slug: '\d+'
+        
+contact_save:
+    path: contact/save/{slug}
+    defaults: { _controller: 'App\Controller\ContactController::save'}
+    requirements:
+        slug: '\d+'
+
+    
+facts:
+    path: facts
+    defaults: { _controller: 'App\Controller\FactsController::index'}
+    
+facts_show:
+    path: facts/{slug}
+    defaults: { _controller: 'App\Controller\FactsController::show'}
+    requirements:
+        slug: '\d+'
+
+facts_edit:
+    path: facts/edit/{slug}
+    defaults: { _controller: 'App\Controller\FactsController::edit'}
+    requirements:
+        slug: '\d+'   
+    
+facts_add:
+    path: facts/add
+    defaults: { _controller: 'App\Controller\FactsController::add'}
+        
+facts_remove:
+    path: facts/remove/{slug}
+    defaults: { _controller: 'App\Controller\FactsController::remove'}
+    requirements:
+        slug: '\d+'
+
+        
+greeting:
+    path: greeting
+    defaults: { _controller: 'App\Controller\GreetingController::index'}
+    
+greeting_save:
+    path: greeting/save
+    defaults: { _controller: 'App\Controller\GreetingController::save'}
+
+    
+menu:
+    path: menu
+    defaults: { _controller: 'App\Controller\MenuController::index'}
+    
+menu_edit:
+    path: menu/edit
+    defaults: { _controller: 'App\Controller\MenuController::edit'}
+    
+post:
+    path: post
+    defaults: { _controller: 'App\Controller\PostController::index'}
+    
+post_send:
+    path: post/send
+    defaults: { _controller: 'App\Controller\PostController::send'} 
+    
+keyboard:
+    path: keyboard
+    defaults: { _controller: 'App\Controller\KeyboardController::index'}
+
+keyboard_show:
+    path: keyboard/{slug}
+    defaults: { _controller: 'App\Controller\KeyboardController::show'}
+    requirements:
+        slug: '\d+'
+        
+keyboard_edit:
+    path: keyboard/edit/{slug}
+    defaults: { _controller: 'App\Controller\KeyboardController::edit'}
+    requirements:
+        slug: '\d+'
+
+taplist:
+    path: taplist
+    defaults: { _controller: 'App\Controller\TapController::index'}
+    
+taplist_save:
+    path: taplist/save
+    defaults: { _controller: 'App\Controller\TapController::save'}
+    
+review:
+    path: review
+    defaults: { _controller: 'App\Controller\ReviewController::index'}
+    
+review_show:
+    path: review/{slug}
+    defaults: { _controller: 'App\Controller\ReviewController::show'}
+    requirements:
+        slug: '\d+'
+
+review_reply:
+    path: review/reply/{slug}
+    defaults: { _controller: 'App\Controller\ReviewController::reply'}
+    requirements:
+        slug: '\d+'   
+       
+review_remove:
+    path: review/remove/{slug}
+    defaults: { _controller: 'App\Controller\ReviewController::remove'}
+    requirements:
+        slug: '\d+'
+
+logout:
+    path: /logout

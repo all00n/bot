@@ -1,0 +1,15 @@
+{{ render(controller('App\\Controller\\HeaderController::index',{'title':'Отзывы'})) }}
+
+    <h1>{{ title }}</h1>
+        
+    {% for rev in reviews %}
+        <div class="col-md-12">
+            <div class="review-container">
+                <h3>{{rev.date | date('d.m.Y H:i')}} {%if rev.status == 0 %} <span class="glyphicon glyphicon-ok" title="Отвечено"></span> {%endif%}</h3>
+                <p>{{rev.review}}</p>
+                <a href="{{path('review_show',{'slug':rev.id})}}" class="btn btn-default right">Ответить</a>
+                <a href="{{path('review_remove',{'slug':rev.id})}}" class="btn btn-danger left">Удалить</a>
+            </div>
+        </div>
+    {% endfor %}
+{% include 'main/footer.html.twig'%}

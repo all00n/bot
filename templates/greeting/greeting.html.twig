@@ -1,0 +1,22 @@
+{{ render(controller('App\\Controller\\HeaderController::index',{'title':'Приветствие'})) }}
+
+    <h1>{{ title }}</h1>
+
+    <form action ="{{ path('greeting_save') }}" method="post" class="form-horizontal">
+        <div class="form-group">
+            <label for="greeting_description" class="col-sm-2 control-label">Описание</label>
+            <div class="col-sm-10">
+                <textarea name="greeting" class="form-control" rows="3" id="greeting_description">{{greeting.description}}</textarea>
+                {% if errors.greeting is defined %}
+                    <span class="text-danger">Заполните поле</span>
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Сохранить</button>
+            </div>
+        </div>
+    </form>
+        
+{% include 'main/footer.html.twig'%}

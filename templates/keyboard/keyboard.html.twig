@@ -1,0 +1,14 @@
+{{ render(controller('App\\Controller\\HeaderController::index',{'title':'Клавиатура'})) }}
+
+    <h1>{{ title }}</h1>
+    
+    {% for key in keyboard %}
+        
+        <pre>{{key.key}}</pre>
+        
+        <a href="{{path('keyboard_show',{'slug':key.id})}}" class="btn btn-default">Редактировать</a>
+        
+        <hr>
+    {% endfor %}
+
+{% include 'main/footer.html.twig'%}

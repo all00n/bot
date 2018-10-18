@@ -1,0 +1,21 @@
+{{ render(controller('App\\Controller\\HeaderController::index',{'title':'Факты'})) }}
+
+    <h1>{{ title }}</h1>
+    
+    <nav class="navbar navbar-light bg-light">
+        <form action ="{{ path('facts_add') }}" method="POST" class="form-inline">
+            <input class="form-control" type="search" placeholder="Новый факт" aria-label="Search" name="fact">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Добавить</button>
+        </form>
+    </nav>
+    
+    {% for fact in facts %}
+        
+        <pre>{{fact.fact}}</pre>
+        
+        <a href="{{path('facts_show',{'slug':fact.id})}}" class="btn btn-default">Редактировать</a>
+        <a href="{{path('facts_remove',{'slug':fact.id})}}" class="btn btn-danger">Удалить</a>
+        
+        <hr>
+    {% endfor %}
+{% include 'main/footer.html.twig'%}

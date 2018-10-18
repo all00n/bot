@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <meta charset="UTF-8">
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+            <link rel="stylesheet" href="{{ asset('/css/style.css') }}"/>
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"/></script>
+            <script defer src="{{ asset('js/main.js')}}"/></script>
+        {% endblock %}
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="nav-side-menu">
+                <div class="brand">ALLOONBot</div>
+                <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+                    <div class="menu-list">
+
+                        <ul id="menu-content" class="menu-content collapse out">
+                            <li>
+                              <a href="{{path('home')}}"><i class="fa fa-dashboard fa-lg"></i>Главная</a>
+                            </li>
+                            <li>
+                                <a href="{{path('contact')}}"><i class="fa fa-gift fa-lg"></i>Контакты</a>
+                            </li>
+                            <li>
+                                <a href="{{path('menu')}}"><i class="fa fa-globe fa-lg"></i>Меню</a>
+                            </li>
+                            <li>
+                                <a href="{{path('facts')}}"><i class="fa fa-car fa-lg"></i>Факты</a>
+                            </li>
+                            <li>
+                                <a href="{{path('greeting')}}"><i class="fa fa-user fa-lg"></i>Приветствие</a>
+                            </li>
+                            <li>
+                                <a href="{{path('keyboard')}}"><i class="fa fa-user fa-lg"></i>Клавиатура</a>
+                            </li>
+                            <li>
+                                <a href="{{path('taplist')}}"><i class="fa fa-user fa-lg"></i>Пользовательская кнопка</a>
+                            </li>
+                            <li>
+                                <a href="{{path('post')}}"><i class="fa fa-user fa-lg"></i>Рассылка поста</a>
+                            </li>
+                            <li>
+                                <a href="{{path('review')}}"><i class="fa fa-user fa-lg"></i>Отзывы</a>
+                            </li>
+                        </ul>
+                 </div>
+            </div>
+            <div id="content" class="content">

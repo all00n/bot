@@ -1,0 +1,27 @@
+{{ render(controller('App\\Controller\\HeaderController::index',{'title':'Главная'})) }}
+
+    <h1>{{ title }}</h1>
+    <div lass="col-md-2">
+        {%if app.request.attributes.get('_route') == 'home'%}
+            <a href="{{path('reserve_annulment')}}" class="btn btn-default">Отмененные заказы</a>
+        {%else%}
+            <a href="{{path('home')}}" class="btn btn-default">Активные заказы</a>
+        {%endif%}
+    </div>
+    <div class="row">
+    {% for res in reserve %}
+        <div class="col-md-4">
+            <div class="reserve-container">
+                <h3>{{res.name}}<a href="{{path('reserve_show',{'slug':res.id})}}" class="glyphicon glyphicon-pencil" aria-hidden="true"></a></h3>
+                <p>Телефон: {{res.phone}}</p>
+                <p>Время {{res.time}}</p>
+                <p>Количество {{res.count}}</p>
+                <p>Дата {{res.date}}</p>
+                <p>Комментарий {{ res.comment |length > 40 ? res.comment|slice(0, 40) ~ '...' : res.comment }}</p>
+                <span>Время заказа {{res.create_time | date('m.d.Y h:i')}}</span>
+            </div>
+        </div>
+    {% endfor%}
+    </div>
+    
+{% include 'main/footer.html.twig'%}

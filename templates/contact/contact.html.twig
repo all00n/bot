@@ -1,0 +1,14 @@
+{{ render(controller('App\\Controller\\HeaderController::index',{'title':'Контакты'})) }}
+
+    <h1>{{ title }}</h1>
+    
+    {% for contact in contacts %}
+        
+        <pre>{{contact.description}}</pre>
+        
+        <a href="{{path('contact_show',{'slug':contact.id})}}" class="btn btn-default">Редактировать</a>
+        
+        <hr>
+    {% endfor %}
+
+{% include 'main/footer.html.twig'%}
